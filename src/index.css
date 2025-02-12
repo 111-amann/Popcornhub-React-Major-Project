@@ -2,3 +2,16 @@
 
 /* Primary - #1F1E24 */
 /* Secondary - #6556CD */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #36353e;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6556CD;
+}
