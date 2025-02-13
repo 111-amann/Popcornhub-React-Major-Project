@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "../../utils/axios";
+import noimage from "/noimage.jpg";
 
 const Topnav = () => {
   const [query, setQuery] = useState("");
-  console.log(query);
-  
+  const [searches, setSearches] = useState(null);
+
+  const getSerches = async () => {
+    try {
+      const response = await axios.get(`/search/movie?query=${query}`);
+      console.log(response.data.results);
+      setSearches(response.data.results);
+    } catch (err) {
+      console.error("Error: ", err);
+    }
+  };
+
+  useEffect(() => {
+    getSerches();
+  }, [query]);
 
   return (
     <div className="w-full h-[10vh] relative flex justify-start items-center ml-[15%]">
-      <i class="text-zinc-400 text-2xl ri-search-line"></i>
+      <i className="text-zinc-400 text-2xl ri-search-line"></i>
       <input
         onChange={(e) => setQuery(e.target.value)}
         value={query}
@@ -16,13 +31,34 @@ const Topnav = () => {
         type="text"
         placeholder="Search anything"
       />
-      {query.length > 0 && <i onClick={()=> setQuery("")} class="text-zinc-400 text-2xl ri-close-fill"></i>}
-      
+      {query.length > 0 && (
+        <i
+          onClick={() => setQuery("")}
+          className="text-zinc-400 text-2xl ri-close-fill"
+        ></i>
+      )}
+
       <div className="w-[45%] max-h-[50vh] bg-zinc-600 absolute top-[80%] left-[3%] overflow-auto rounded-md">
-        {/* <Link className="w-full text-zinc-300 py-2 px-5 flex items-center border-b-[1px] border-zinc-500 hover:bg-zinc-500 hover:text-zinc-200 duration-300 font-semibold">
-          <img src="" alt="" />
-          <span>Movie Name</span>
-        </Link>    */}
+        {searches &&
+          searches.map((s, i) => (
+            <Link
+              key={i}
+              className="w-full text-zinc-300 py-2 px-5 flex items-center border-b-[1px] border-zinc-500 hover:bg-zinc-500 hover:text-zinc-200 duration-300 font-semibold"
+            >
+              <img
+                src={
+                  s.poster_path || s.backdrop_path
+                    ? `https://image.tmdb.org/t/p/original/${
+                        s.poster_path || s.backdrop_path
+                      }`
+                    : noimage
+                }
+                alt=""
+                className="w-12 h-17 object-cover rounded-md mr-4 my-2 shadow"
+              />
+              <span>{s.title || s.original_title}</span>
+            </Link>
+          ))}
       </div>
     </div>
   );
