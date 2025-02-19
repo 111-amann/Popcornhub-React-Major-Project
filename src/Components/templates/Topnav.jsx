@@ -9,9 +9,9 @@ const Topnav = () => {
 
   const getSerches = async () => {
     try {
-      const response = await axios.get(`/search/movie?query=${query}`);
-      // console.log(response.data.results);
-      setSearches(response.data.results);
+      const {data} = await axios.get(`/search/movie?query=${query}`);
+      // console.log(data.results);
+      setSearches(data.results);
     } catch (err) {
       console.error("Error: ", err);
     }
