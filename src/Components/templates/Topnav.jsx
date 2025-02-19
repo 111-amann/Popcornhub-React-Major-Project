@@ -10,7 +10,7 @@ const Topnav = () => {
   const getSerches = async () => {
     try {
       const response = await axios.get(`/search/movie?query=${query}`);
-      console.log(response.data.results);
+      // console.log(response.data.results);
       setSearches(response.data.results);
     } catch (err) {
       console.error("Error: ", err);
@@ -22,12 +22,12 @@ const Topnav = () => {
   }, [query]);
 
   return (
-    <div className="w-full h-[10vh] relative flex justify-start items-center ml-[15%]">
+    <div className="w-full h-[10vh] relative flex justify-start items-center pl-[15%]">
       <i className="text-zinc-400 text-2xl ri-search-line"></i>
       <input
         onChange={(e) => setQuery(e.target.value)}
         value={query}
-        className="w-[45%] mx-2 p-2 text-md outline-none focus:border-zinc-600 text-zinc-300 rounded-xl border-[2px] border-zinc-700"
+        className="w-[53%] mx-2 p-2 text-md outline-none focus:border-zinc-600 text-zinc-300 rounded-xl border-[2px] border-zinc-700"
         type="text"
         placeholder="Search anything"
       />
@@ -38,7 +38,7 @@ const Topnav = () => {
         ></i>
       )}
 
-      <div className="w-[45%] max-h-[50vh] bg-zinc-600 absolute top-[80%] left-[3%] overflow-auto rounded-md">
+      <div className="w-[45%] max-h-[50vh] bg-zinc-600 absolute top-[75%] left-[18%] overflow-auto rounded-md">
         {searches &&
           searches.map((s, i) => (
             <Link
@@ -56,7 +56,8 @@ const Topnav = () => {
                 alt=""
                 className="w-12 h-17 object-cover rounded-md mr-4 my-2 shadow"
               />
-              <span>{s.title || s.original_title}</span>
+              <span>{s.title || s.original_title || s.original_name || s.name
+              }</span>
             </Link>
           ))}
       </div>
