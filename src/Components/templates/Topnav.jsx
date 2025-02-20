@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "../../utils/axios";
 import noimage from "/noimage.jpg";
 
-const Topnav = () => {
+const Topnav = ({queryBox = "left-[18%]", queryBoxWidth= "w-[45%]"}) => {
   const [query, setQuery] = useState("");
   const [searches, setSearches] = useState(null);
 
@@ -38,7 +38,7 @@ const Topnav = () => {
         ></i>
       )}
 
-      <div className="w-[45%] max-h-[50vh] bg-zinc-600 absolute top-[75%] left-[18%] overflow-auto rounded-md">
+      <div className={`${queryBoxWidth} max-h-[50vh] bg-zinc-600 absolute top-[75%] ${queryBox} overflow-auto rounded-md`}>
         {searches &&
           searches.map((s, i) => (
             <Link

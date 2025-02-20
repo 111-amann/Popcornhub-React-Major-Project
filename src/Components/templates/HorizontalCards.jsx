@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown";
 
 const HorizontalCards = ({ data }) => {
   const scrollContainer = useRef(null);
@@ -25,7 +24,7 @@ const HorizontalCards = ({ data }) => {
         {data.map((item, i) => (
           <div
             key={i}
-            className="min-w-[15%] card bg-zinc-900 p-2 mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300"
+            className="min-w-[15%] card bg-zinc-900 p-2 mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300 shadow-[6px_13px_25px_2px_rgba(0,0,0,.5)] hover:shadow-[6px_13px_25px_2px_rgba(0,0,0,.2)]"
           >
             <img
               src={`https://image.tmdb.org/t/p/original/${
@@ -54,7 +53,7 @@ const HorizontalCards = ({ data }) => {
         <i className="ri-arrow-left-line"></i>
       </button>
       <button
-        onClick={() => scroll("right")}
+        onClick={() => scroll("right")} 
         className="absolute right-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-yellow-500 transition"
       >
         <i className="ri-arrow-right-line"></i>

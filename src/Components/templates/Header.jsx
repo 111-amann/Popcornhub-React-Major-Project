@@ -27,7 +27,7 @@ const Header = ({ data }) => {
         <i className="ri-album-fill mr-1 text-[#6556CD] ml-5"></i>
         {data.media_type.toUpperCase() || "no iformation"}
       </p>
-      <Link className="px-4 py-3 bg-yellow-500 rounded mt-3 text-sm font-semibold text-black">
+      <Link className="px-4 py-3 bg-yellow-500 hover:bg-yellow-400 duration-300 rounded mt-3 text-sm font-semibold text-black">
         Watch Trailer
       </Link>
     </div>

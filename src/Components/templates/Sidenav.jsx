@@ -26,19 +26,19 @@ const Sidenav = () => {
           <h1 className="font-semibold mt-5 text-lg mb-1 text-white bg-zinc-800 rounded p-2">
             New Feeds
           </h1>
-          <Link className="hover:bg-[#6556CD] hover:text-white p-4 rounded-lg duration-300">
+          <Link to="/trending" className="hover:bg-yellow-500 hover:text-white p-4 rounded-lg duration-300">
             <i className="mr-2 ri-fire-fill"></i>Trending
           </Link>
-          <Link className="hover:bg-[#6556CD] hover:text-white p-4 rounded-lg duration-300">
+          <Link to="/popular" className="hover:bg-yellow-500 hover:text-white p-4 rounded-lg duration-300">
             <i className="mr-2 ri-bard-fill"></i>Popular
           </Link>
-          <Link className="hover:bg-[#6556CD] hover:text-white p-4 rounded-lg duration-300">
+          <Link to="/movies" className="hover:bg-yellow-500 hover:text-white p-4 rounded-lg duration-300">
             <i className="mr-2 ri-movie-2-fill"></i>Movies
           </Link>
-          <Link className="hover:bg-[#6556CD] hover:text-white p-4 rounded-lg duration-300">
+          <Link to="/tvshows" className="hover:bg-yellow-500 hover:text-white p-4 rounded-lg duration-300">
             <i className="mr-2 ri-tv-2-fill"></i>TV Shows
           </Link>
-          <Link className="hover:bg-[#6556CD] hover:text-white p-4 rounded-lg duration-300">
+          <Link to="/people" className="hover:bg-yellow-500 hover:text-white p-4 rounded-lg duration-300">
             <i className="mr-2 ri-team-fill"></i>People
           </Link>
         </nav>
@@ -48,10 +48,10 @@ const Sidenav = () => {
           <h1 className="font-semibold mt-5 text-lg mb-1 text-white bg-zinc-800 rounded p-2">
             Website Information
           </h1>
-          <Link className="hover:bg-[#6556CD] hover:text-white p-4 rounded-lg duration-300">
+          <Link to="/contact" className="hover:bg-yellow-500 hover:text-white p-4 rounded-lg duration-300">
             <i className="mr-2 ri-phone-fill"></i>Contact
           </Link>
-          <Link className="hover:bg-[#6556CD] hover:text-white p-4 rounded-lg duration-300">
+          <Link to="/about" className="hover:bg-yellow-500 hover:text-white p-4 rounded-lg duration-300">
             <i className="mr-2 ri-information-fill"></i>About PopcornHub
           </Link>
         </nav>
