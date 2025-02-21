@@ -1,27 +1,34 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Sidenav = () => {
+const ResponsiveSideNav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <div className="w-[20%] h-full border-r-2 border-zinc-500 p-4 md:block hidden">
-        <div className="flex justify-center items-center">
-          <div className="logo inline-block">
-            <img
-              className="w-[3vw] inline-block"
-              src="/popcornhublogo.png"
-              alt=""
-            />
-          </div>
-          <h1 className="text-2xl font-bold text-white relative">
-            <span className="py-1 tracking-tight">
-              Popcorn
-              <span className="bg-yellow-500 rounded-sm text-black p-[2px] ml-[3px]">
-                hub
-              </span>
-            </span>
-          </h1>
-        </div>
-        <div className="underline w-full h-[1px] bg-zinc-500 mt-4"></div>
+    <div className="z-50">
+
+      <i
+        className="ri-menu-line md:hidden inline-block text-xl fixed right-[3%] top-16 z-50 bg-gray-800 p-1 rounded shadow-lg cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      ></i>
+
+      {isOpen && (
+        <div
+          className="fixed bg-black bg-opacity-50 z-40"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
+
+
+      <div
+        className={`fixed top-16 right-0 w-[75%] sm:w-[50%] h-full bg-[#1F1E24] shadow-lg transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 ease-in-out z-50`}
+      >
+
+        <i class="ri-close-line absolute top-6 right-4 text-white text-2xl" onClick={() => setIsOpen(false)}></i>
+        
         <nav className="flex flex-col text-zinc-400">
           <h1 className="font-semibold mt-5 text-lg mb-1 text-white bg-zinc-800 rounded p-2">
             New Feeds
@@ -56,8 +63,12 @@ const Sidenav = () => {
           </Link>
         </nav>
       </div>
+      </div>
     </>
   );
 };
 
-export default Sidenav;
+export default ResponsiveSideNav;
+
+
+      

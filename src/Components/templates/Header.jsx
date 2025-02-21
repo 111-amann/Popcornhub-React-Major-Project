@@ -12,22 +12,26 @@ const Header = ({ data }) => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-full h-[50vh] flex flex-col justify-end items-start p-10"
+      className="w-full sm:h-[50vh] h-[30vh] flex flex-col justify-end items-start sm:p-10 p-3"
     >
-      <h1 className="w-[50%] text-5xl font-black mb-3">
+      <h1 className="w-[50%] md:text-5xl sm:text-4xl text-xl font-black sm:mb-3 mb-0">
         {data.title || data.original_title || data.original_name || data.name}
       </h1>
-      <p className="w-[50%] text-zinc-200">
+      <p className="w-[50%] text-zinc-200 md:text-md text-sm sm:block hidden">
         {data.overview.slice(0, 200)}...
         <Link className="text-blue-400">More</Link>
       </p>
-      <p className="mb-3 text-sm">
-        <i className="ri-megaphone-fill mr-2 text-[#6556CD]"></i>
+      <p className="w-[70%] text-zinc-200 md:text-md text-sm sm:hidden block">
+        {data.overview.slice(0, 65)}...
+        <Link className="text-blue-400">More</Link>
+      </p>
+      <p className="md:mb-3 mb-0 md:text-sm text-xs">
+        <i className="ri-megaphone-fill mr-1 text-[#6556CD] md:text-md text-sm"></i>
         {data.release_date || data.first_air_date}
-        <i className="ri-album-fill mr-1 text-[#6556CD] ml-5"></i>
+        <i className="ri-album-fill mr-1 text-[#6556CD] sm:ml-5 ml-2 md:text-md text-sm"></i>
         {data.media_type.toUpperCase() || "no iformation"}
       </p>
-      <Link className="px-4 py-3 bg-yellow-500 hover:bg-yellow-400 duration-300 rounded mt-3 text-sm font-semibold text-black">
+      <Link className="md:px-4 md:py-3 sm:px-3 px-2 sm:py-2 py-1 bg-yellow-500 hover:bg-yellow-400 duration-300 rounded lg:mt-3 md:text-sm sm:text-xs text-[10px] font-semibold text-black">
         Watch Trailer
       </Link>
     </div>

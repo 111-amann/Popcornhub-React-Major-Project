@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../utils/axios";
 import noimage from "/noimage.jpg";
+import Sidenav from "./Sidenav";
 
 const Topnav = () => {
   const [query, setQuery] = useState("");
@@ -22,13 +23,13 @@ const Topnav = () => {
   }, [query]);
 
   return (
-    <div className="w-full h-[10vh] relative flex justify-start items-center xl:pl-[15%] lg:pl-[10%] md:pl-[6%] pl-0">
+    <div className="w-full h-[10vh] relative flex justify-start items-center xl:pl-[15%] lg:pl-[9%] md:pl-[4%] sm:pl-[10%] pl-0">
       <i className="text-zinc-400 lg:text-2xl md:text-xl sm:text-lg text-md ri-search-line mr-2"></i>
       <div className="relative w-full">
       <input
         onChange={(e) => setQuery(e.target.value)}
         value={query}
-        className="xl:w-[53%] md:w-[80%] sm:w-[90%] w-[100%] md:p-2 p-1 md:text-md text-sm outline-none focus:border-zinc-600 text-zinc-300 rounded-xl border-[2px] border-zinc-700"
+        className="xl:w-[70%] lg:w-[80%] md:w-[90%] sm:w-[80%] w-[88%] md:p-2 p-1 md:text-md sm:text-sm  text-xs outline-none focus:border-zinc-600 text-zinc-300 rounded-xl border-[2px] border-zinc-700"
         type="text"
         placeholder="Search anything"
       />
@@ -38,8 +39,7 @@ const Topnav = () => {
           className="text-zinc-400 lg:text-2xl md:text-xl sm:text-lg text-md md:block hidden ri-close-fill"
         ></i>
       )}
-
-      <div className={`xl:w-[53%] md:w-[80%] sm:w-[90%] w-[100%] xl:max-h-[50vh] md:max-h-[35vh] max-h-[30vh] bg-zinc-600 absolute top-[75%] left-0 overflow-auto rounded-md`}>
+      <div className={`xl:w-[70%] lg:w-[80%] md:w-[90%] sm:w-[80%] w-[88%] xl:max-h-[50vh] md:max-h-[35vh] max-h-[30vh] bg-zinc-600 absolute top-[75%] left-0 overflow-auto rounded-md`}>
         {searches &&
           searches.map((s, i) => (
             <Link 

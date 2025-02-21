@@ -24,7 +24,7 @@ const HorizontalCards = ({ data }) => {
         {data.map((item, i) => (
           <div
             key={i}
-            className="min-w-[15%] card bg-zinc-900 p-2 mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300 shadow-[6px_13px_25px_2px_rgba(0,0,0,.5)] hover:shadow-[6px_13px_25px_2px_rgba(0,0,0,.2)]"
+            className="lg:min-w-[15%] sm:min-w-[25%] min-w-[36%] md:h-auto  card bg-zinc-900 p-2 mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300 shadow-[6px_13px_25px_2px_rgba(0,0,0,.5)] hover:shadow-[6px_13px_25px_2px_rgba(0,0,0,.2)]"
           >
             <img
               src={`https://image.tmdb.org/t/p/original/${
@@ -48,13 +48,13 @@ const HorizontalCards = ({ data }) => {
       </div>
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 text-md"
+        className="absolute left-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 sm:text-md md:text-lg text-sm sm:block hidden"
       >
         <i className="ri-arrow-left-line"></i>
       </button>
       <button
         onClick={() => scroll("right")} 
-        className="absolute right-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 text-md"
+        className="absolute right-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 sm:text-md md:text-lg text-sm sm:block hidden"
       >
         <i className="ri-arrow-right-line"></i>
       </button>

@@ -65,6 +65,53 @@ select::-ms-expand{
   color: #f0b100;
 }
 
-@media screen {
+@media (max-width: 900px){
+  select{
+    font-size: 0.8rem;
+  }
   
+  .select{
+    width: 12em;
+    height: 2em;
+  }
+  .select::after{
+    font-size: 1.7vw;
+    top: 2px;
+  }
+}
+@media (max-width: 768px){
+  .select{
+    width: 10em;
+    margin-right: 10px;
+  }
+  .select::after{
+    font-size: 1.2vw;
+    top: 5px;
+  }
+}
+@media (max-width: 720px){
+  select{
+    font-size: 0.7rem;
+  }
+  .select{
+    width: 9em;
+    margin-right: 10px;
+  }
+  .select::after{
+    font-size: 1vw;
+    top: 5px;
+  }
+}
+@media (max-width: 400px){
+  select{
+    font-size: 0.7rem;
+  }
+  .select{
+    width: 10em;
+    margin-right: 5px;
+  }
+  .select::after{
+    font-size: 2vw;
+    top: 5px;
+  }
 }

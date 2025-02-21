@@ -6,6 +6,7 @@ import Header from "./templates/Header";
 import HorizontalCards from "./templates/HorizontalCards";
 import Dropdown from "./templates/Dropdown";
 import Loading from "./Loading";
+import ResponsiveSideNav from "./templates/ResponsiveSideNav";
 
 const Home = () => {
   document.title = "Homepage";
@@ -41,11 +42,22 @@ return  wallpaper && trending ? (
     <>
       {" "} 
       <Sidenav />
-      <div className="w-[80%] h-full overflow-auto">
+      <div className="md:w-[80%] w-full h-full overflow-auto">
+      <div className="md:hidden block">
+          <ResponsiveSideNav />
+        </div>
+      <h1 className="md:hidden block text-xl text-center pt-5 font-bold text-white relative">
+            <span className="tracking-tight">
+              Popcorn
+              <span className="bg-yellow-500 rounded-sm text-black p-[1px] ml-[2px]">
+                hub
+              </span>
+            </span>
+          </h1>
         <Topnav />
         <Header data = {wallpaper} />
         <div className="flex justify-between p-5">
-        <h1 className="text-3xl font-semibold text-zinc-400">Trending</h1>
+        <h1 className="md:text-3xl sm:text-2xl text-xl font-semibold text-zinc-400">Trending</h1>
         <Dropdown title="Filter" options={["tv","movie","all"]} func={(e)=>setCategory(e.target.value)}/>
       </div>
         <HorizontalCards data = {trending} />
