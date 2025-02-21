@@ -48,13 +48,13 @@ const HorizontalCards = ({ data }) => {
       </div>
       <button
         onClick={() => scroll("left")}
-        className="absolute left-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-yellow-500 transition"
+        className="absolute left-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 text-md"
       >
         <i className="ri-arrow-left-line"></i>
       </button>
       <button
         onClick={() => scroll("right")} 
-        className="absolute right-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full shadow-lg hover:bg-yellow-500 transition"
+        className="absolute right-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 text-md"
       >
         <i className="ri-arrow-right-line"></i>
       </button>

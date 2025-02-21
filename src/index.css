@@ -64,3 +64,7 @@ select::-ms-expand{
 .select:hover::after{
   color: #f0b100;
 }
+
+@media screen {
+  
+}

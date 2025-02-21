@@ -11,6 +11,7 @@ const Trending = () => {
   const [category, setCategory] = useState("all");
   const [duration, setDuration] = useState("day");
   const [trending, setTrending] = useState([]);
+  document.title = "Popcornhub | Trending " + category.toUpperCase();
 
   const getTrending = async () => {
     try {
@@ -29,16 +30,16 @@ const Trending = () => {
   }, [category, duration]);
 
   return trending.length > 0 ? (
-    <div className="w-screen h-screen px-10 py-5 overflow-hidden overflow-y-auto">
+    <div className="w-screen h-screen md:px-10 px-0 py-5 overflow-hidden overflow-y-auto">
       <div className="w-full flex items-center">
-        <h1 className="text-2xl font-semibold text-zinc-400">
+        <h1 className="lg:text-2xl md:text-xl sm:text-lg text-md font-semibold text-zinc-400">
           <i
             onClick={() => navigate("/")}
-            className="ri-arrow-left-line bg-gray-800 text-white p-1 rounded-full shadow-lg hover:bg-yellow-500 transition mr-5"
+            className="ri-arrow-left-line bg-gray-800 text-white p-1 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 text-md"
           ></i>
           Trending
         </h1>
-        <Topnav queryBox="left-[27.2%]" queryBoxWidth="w-[40.6%]" />
+        <Topnav />
         <Dropdown
           title="Category"
           options={["movie", "tv", "all"]}

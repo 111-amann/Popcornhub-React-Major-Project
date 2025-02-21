@@ -13,13 +13,13 @@ const popular = () => {
   const [popular, setPopular] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  document.title = "Popcornhub | Popular " + category.toUpperCase();
 
   const getPopular = async () => {
     try {
       const { data } = await axios.get(
-        `${category}/popular/?language=en-US&page=${page}`
+        `${category}/popular?page=${page}`
       );
-      // setPopular(data.results);
       if (data.results.length > 0) {
         setPopular((prev) => [...prev, ...data.results]);
         setPage(page + 1);
@@ -46,16 +46,16 @@ const popular = () => {
   }, [category]);
 
   return popular.length > 0 ? (
-    <div className="w-screen h-fit px-10 py-5 bg-[#1F1E24]">
+    <div className="w-screen h-fit md:px-10 p-0 md:py-5 bg-[#1F1E24]">
       <div className="w-full flex items-center">
-        <h1 className="text-2xl font-semibold text-zinc-400">
+        <h1 className="lg:text-2xl md:text-xl font-semibold text-zinc-400">
           <i
             onClick={() => navigate("/")}
             className="ri-arrow-left-line bg-gray-800 text-white p-1 rounded-full shadow-lg hover:bg-yellow-500 transition mr-5"
           ></i>
           Popular
         </h1>
-        <Topnav queryBox="left-[23.5%]" queryBoxWidth="w-[42%]" />
+        <Topnav />
         <Dropdown
           title="Category"
           options={["movie", "tv"]}
@@ -68,7 +68,7 @@ const popular = () => {
         dataLength={popular.length}
         next={getPopular}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<h4 className="text-center">Loading...</h4>}
       >
         <Card data={popular} />
       </InfiniteScroll>
