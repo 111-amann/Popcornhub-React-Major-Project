@@ -57,7 +57,7 @@ return  wallpaper && trending ? (
         <Topnav />
         <Header data = {wallpaper} />
         <div className="flex justify-between sm:p-5 p-2">
-        <h1 className="md:text-3xl sm:text-2xl text-xl font-semibold text-zinc-400">Trending</h1>
+        <h1 className="md:text-3xl sm:text-2xl text-xl font-semibold text-zinc-400">Trending<span className="sm:ml-1 ml-[3px] lg:text-sm md:text-xs sm:text-[15px] text-[10px] text-zinc-500">({category})</span></h1>
         <Dropdown title="Filter" options={["tv","movie","all"]} func={(e)=>setCategory(e.target.value)}/>
       </div>
         <HorizontalCards data = {trending} />

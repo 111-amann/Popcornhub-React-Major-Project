@@ -7,7 +7,7 @@ import Loading from "./Loading";
 import Card from "./templates/Card";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const popular = () => {
+const Popular = () => {
   const navigate = useNavigate();
   const [category, setCategory] = useState("movie");
   const [popular, setPopular] = useState([]);
@@ -53,7 +53,7 @@ const popular = () => {
             onClick={() => navigate("/")}
             className="ri-arrow-left-line bg-gray-800 text-white p-1 md:p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 sm:text-md md:text-lg text-sm sm:static absolute left-[2%]"
           ></i>
-          Popular<span className="ml-2 lg:text-sm md:text-xs text-zinc-500 md:inline hidden">{category}</span>
+          Popular<span className="ml-2 lg:text-sm md:text-xs text-zinc-500 md:inline hidden">({category})</span>
         </h1>
         <div className="flex justify-center items-center w-full px-2 gap-2">
         <Topnav />
@@ -79,4 +79,4 @@ const popular = () => {
   );
 };
 
-export default popular;
+export default Popular;
