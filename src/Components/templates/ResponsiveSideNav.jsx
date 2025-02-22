@@ -9,7 +9,7 @@ const ResponsiveSideNav = () => {
     <div className="z-50">
 
       <i
-        className="ri-menu-line md:hidden inline-block text-xl fixed right-[3%] top-16 z-50 bg-gray-800 p-1 rounded shadow-lg cursor-pointer"
+        className="ri-menu-line md:hidden inline-block text-xl fixed right-[2%] top-14 z-50 bg-gray-800 p-1 rounded shadow-lg cursor-pointer"
         onClick={() => setIsOpen(true)}
       ></i>
 
@@ -22,7 +22,7 @@ const ResponsiveSideNav = () => {
 
 
       <div
-        className={`fixed top-16 right-0 w-[75%] sm:w-[50%] h-full bg-[#1F1E24] shadow-lg transform ${
+        className={`fixed top-14 right-0 w-[75%] sm:w-[50%] h-full bg-[#1F1E24] shadow-lg transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out z-50`}
       >

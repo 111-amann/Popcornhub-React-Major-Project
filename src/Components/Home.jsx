@@ -46,7 +46,7 @@ return  wallpaper && trending ? (
       <div className="md:hidden block">
           <ResponsiveSideNav />
         </div>
-      <h1 className="md:hidden block text-xl text-center pt-5 font-bold text-white relative">
+      <h1 className="md:hidden block text-xl text-center pt-3 font-bold text-white relative">
             <span className="tracking-tight">
               Popcorn
               <span className="bg-yellow-500 rounded-sm text-black p-[1px] ml-[2px]">
@@ -56,7 +56,7 @@ return  wallpaper && trending ? (
           </h1>
         <Topnav />
         <Header data = {wallpaper} />
-        <div className="flex justify-between p-5">
+        <div className="flex justify-between sm:p-5 p-2">
         <h1 className="md:text-3xl sm:text-2xl text-xl font-semibold text-zinc-400">Trending</h1>
         <Dropdown title="Filter" options={["tv","movie","all"]} func={(e)=>setCategory(e.target.value)}/>
       </div>

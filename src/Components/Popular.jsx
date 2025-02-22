@@ -13,7 +13,7 @@ const popular = () => {
   const [popular, setPopular] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  document.title = "Popcornhub | Popular " + category.toUpperCase();
+  document.title = "Popcornhub | Popular"
 
   const getPopular = async () => {
     try {
@@ -53,13 +53,13 @@ const popular = () => {
             onClick={() => navigate("/")}
             className="ri-arrow-left-line bg-gray-800 text-white p-1 md:p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 sm:text-md md:text-lg text-sm sm:static absolute left-[2%]"
           ></i>
-          Popular
+          Popular<span className="ml-2 lg:text-sm md:text-xs text-zinc-500 md:inline hidden">{category}</span>
         </h1>
         <div className="flex justify-center items-center w-full px-2 gap-2">
         <Topnav />
         <Dropdown
           title="Category"
-          options={["movie", "tv"]}
+          options={["tv" , "movie"]}
           func={(e) => setCategory(e.target.value)}
         /></div>
         <div className="w-10"></div>

@@ -15,7 +15,7 @@ const HorizontalCards = ({ data }) => {
   };
 
   return (
-    <div className="w-full h-[40vh] px-5 relative">
+    <div className="w-full h-[40vh] sm:px-5 px-1 relative ">
       <div
         ref={scrollContainer}
         className="w-full flex overflow-auto gap-2"
@@ -24,22 +24,22 @@ const HorizontalCards = ({ data }) => {
         {data.map((item, i) => (
           <div
             key={i}
-            className="lg:min-w-[15%] sm:min-w-[25%] min-w-[36%] md:h-auto  card bg-zinc-900 p-2 mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300 shadow-[6px_13px_25px_2px_rgba(0,0,0,.5)] hover:shadow-[6px_13px_25px_2px_rgba(0,0,0,.2)]"
+            className="lg:min-w-[15%] sm:min-w-[25%] min-w-[45%] md:h-auto card bg-zinc-900 sm:p-2 p-0 sm:mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300 shadow-[6px_13px_25px_2px_rgba(0,0,0,.5)] hover:shadow-[6px_13px_25px_2px_rgba(0,0,0,.2)]"
           >
             <img
               src={`https://image.tmdb.org/t/p/original/${
                 item.poster_path || item.backdrop_path
               }`}
               alt="banner"
-              className="w-full object-cover rounded-md shadow"
+              className="sm:w-full w-[80%] object-cover rounded-md shadow"
             />
-            <h1 className="text-lg font-semibold mt-2">
+            <h1 className="sm:text-lg text-md font-semibold sm:mt-2 mt-[2px]">
               {item.title ||
                 item.original_title ||
                 item.original_name ||
                 item.name}
             </h1>
-            <p className="text-zinc-300 text-sm">
+            <p className="text-zinc-300 sm:text-sm text-xs sm:px-0 px-2">
               {item.overview.slice(0, 35)}...
               <Link className="text-zinc-400">More</Link>
             </p>
