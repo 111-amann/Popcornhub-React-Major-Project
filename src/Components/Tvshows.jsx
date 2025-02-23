@@ -70,7 +70,7 @@ const tvShow = () => {
         hasMore={hasMore}
         loader={<h4 className="text-center">Loading...</h4>}
       >
-        <Card data={tvShow} />
+        <Card data={tvShow} title="tv" />
       </InfiniteScroll>
     </div>
   ) : (

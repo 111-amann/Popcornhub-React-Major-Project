@@ -19,11 +19,11 @@ const Header = ({ data }) => {
       </h1>
       <p className="w-[50%] text-zinc-200 md:text-md text-sm sm:block hidden">
         {data.overview.slice(0, 200)}...
-        <Link className="text-blue-400">More</Link>
+        <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400">More</Link>
       </p>
       <p className="w-[70%] text-zinc-200 md:text-md sm:text-sm text-xs sm:hidden block">
         {data.overview.slice(0, 65)}... 
-        <Link className="text-blue-400">More</Link>
+        <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400">More</Link>
       </p>
       <p className="md:mb-3 mb-0 md:text-sm sm:text-xs text-[9px]">
         <i className="ri-megaphone-fill mr-1 text-[#6556CD] md:text-md sm:text-sm text-xs"></i>

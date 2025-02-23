@@ -8,22 +8,31 @@ import Tvshows from "./Components/Tvshows";
 import People from "./Components/People";
 import Contact from "./Components/Contact";
 import About from "./Components/About";
+import Moviedetails from "./Components/Moviedetails";
+import Tvdetails from "./Components/Tvdetails";
+import Persondetails from "./Components/Persondetails";
 
 const App = () => {
   return (
     <div className="w-screen h-screen bg-[#1F1E24] text-white flex">
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/trending" element={<Trending />}></Route>
-        <Route path="/popular" element={<Popular />}></Route>
-        <Route path="/movies" element={<Movies />}></Route>
-        <Route path="/tvshows" element={<Tvshows />}></Route>
-        <Route path="/people" element={<People />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-        <Route path="/about" element={<About />}></Route>
+        <Route path="/trending" element={<Trending />} />
+        <Route path="/popular" element={<Popular />} />
+        <Route path="/movie" element={<Movies />} />
+        <Route path="/movie/details/:id" element={<Moviedetails />} />
+
+        <Route path="/tv" element={<Tvshows />} />
+        <Route path="/tv/details/:id" element={<Tvdetails />} />
+
+        <Route path="/person" element={<People />} />
+        <Route path="/person/details/:id" element={<Persondetails />} />
+
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

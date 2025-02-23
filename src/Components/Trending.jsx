@@ -53,7 +53,7 @@ const Trending = () => {
         </div>
       </div>
       <hr className="h-[1px] text-zinc-700 w-full" />
-      <Card data={trending} />
+      <Card data={trending} title={category} />
     </div>
   ) : (
     <Loading />

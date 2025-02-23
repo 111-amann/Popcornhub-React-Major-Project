@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { data, useNavigate } from "react-router-dom";
 import Topnav from "./templates/Topnav";
-import Dropdown from "./templates/Dropdown";
 import axios from "../utils/axios";
 import Loading from "./Loading";
 import Card from "./templates/Card";
@@ -65,7 +64,7 @@ const People = () => {
         hasMore={hasMore}
         loader={<h4 className="text-center">Loading...</h4>}
       >
-        <Card data={person} personPara={true} />
+        <Card data={person} personPara={true} title="person" />
       </InfiniteScroll>
     </div>
   ) : (

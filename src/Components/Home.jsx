@@ -53,7 +53,7 @@ return  wallpaper && trending ? (
                 hub
               </span>
             </span>
-          </h1>
+          </h1> 
         <Topnav />
         <Header data = {wallpaper} />
         <div className="flex justify-between sm:p-5 p-2">

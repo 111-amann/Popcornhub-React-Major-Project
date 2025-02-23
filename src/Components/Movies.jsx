@@ -70,7 +70,7 @@ const Movie = () => {
         hasMore={hasMore}
         loader={<h4 className="text-center">Loading...</h4>}
       >
-        <Card data={movie} />
+        <Card data={movie} title="movie" />
       </InfiniteScroll>
     </div>
   ) : (

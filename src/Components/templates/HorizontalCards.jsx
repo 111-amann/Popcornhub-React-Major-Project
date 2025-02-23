@@ -22,7 +22,8 @@ const HorizontalCards = ({ data }) => {
         style={{ scrollBehavior: "smooth" }}
       >
         {data.map((item, i) => (
-          <div
+          <Link
+            to={`/${item.media_type}/details/${item.id}`}
             key={i}
             className="lg:min-w-[15%] sm:min-w-[25%] min-w-[45%] md:h-auto card bg-zinc-900 sm:p-2 p-0 sm:mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300 shadow-[6px_13px_25px_2px_rgba(0,0,0,.5)] hover:shadow-[6px_13px_25px_2px_rgba(0,0,0,.2)]"
           >
@@ -43,7 +44,7 @@ const HorizontalCards = ({ data }) => {
               {item.overview.slice(0, 35)}...
               <Link className="text-zinc-400">More</Link>
             </p>
-          </div>
+          </Link>
         ))}
       </div>
       <button
