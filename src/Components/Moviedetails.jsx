@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadmovie, removemovie } from "../store/actions/movieActions";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
+import HorizontalCards from "./templates/HorizontalCards";
 
 const Moviedetails = () => {
+  const { pathname } = useLocation();
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const Moviedetails = () => {
     return () => {
       dispatch(removemovie());
     };
-  }, []);
+  }, [id]);
   return info ? (
     <div
       style={{
@@ -27,8 +29,9 @@ const Moviedetails = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-screen h-screen md:px-5 px-1"
+      className="w-screen h-screen md:px-5 px-1 overflow-auto relative"
     >
+      {/* Part 1 Navigation */}
       <nav className="w-full text-zinc-200 flex md:gap-10 sm:gap-5 gap-3 items-center sm:text-md md:text-lg text-sm drop-shadow-lg bg-transparent bg-white/10 sm:mt-4 mt-2 py-2 px-2">
         <i
           onClick={() => navigate("/")}
@@ -52,6 +55,7 @@ const Moviedetails = () => {
         </a>
       </nav>
 
+      {/* Part 2 Film Details */}
       <div className="w-full flex md:p-8 sm:p-5 p-2">
         <img
           src={`https://image.tmdb.org/t/p/original/${
@@ -60,16 +64,18 @@ const Moviedetails = () => {
           alt="banner"
           className="md:h-[50vh] sm:h-[33vh] h-[30vh] object-contain rounded-md shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] hover:shadow-[8px_17px_38px_2px_rgba(0,0,0,.2)]"
         />
+
         <div className="content md:ml-20 sm:ml-10 ml-3 sm:w-auto w-[60%]">
-          <h1 className="xl:text-5xl sm:text-4xl text-2xl font-black">
+          <h1 className="xl:text-5xl lg:text-4xl md:text-3xl sm:text-4xl text-2xl font-black">
             {info.detail.title ||
               info.detail.original_title ||
               info.detail.name ||
               info.detail.original_name}{" "}
             <span className="md:text-lg sm:text-md text-sm font-semibold text-zinc-200">
               (
-              {info.detail.release_date.split("-")[0] ||
-                info.detail.first_air_date.split("-")[0]}
+              {(info.detail.release_date?.split("-")[0] ||
+                info.detail.first_air_date?.split("-")[0]) ??
+                "N/A"}
               )
             </span>
           </h1>
@@ -95,26 +101,34 @@ const Moviedetails = () => {
             </h1>
           </div>
 
-          <h1 className="md:text-xl sm:text-lg text-md font-semibold italic text-zinc-200 sm:block hidden">
+          <h1 className="md:text-2xl sm:text-lg text-md font-semibold italic text-zinc-200 md:block hidden">
             {info.detail.tagline}
           </h1>
-          <h1 className="md:text-2xl sm:text-xl text-lg font-semibold mt-4 mb-1 sm:block hidden">
+          <h1 className="md:text-2xl sm:text-xl text-lg font-semibold mt-2 mb-1 md:block hidden">
             Overview
           </h1>
-          <p className="sm:text-md text-sm text-zinc-200 leading-6 sm:block hidden">
+          <p className="md:text-md sm:text-xs text-sm text-zinc-200 leading-6 md:block hidden">
             {info.detail.overview}
           </p>
-          <h1 className="md:text-2xl sm:text-xl text-lg font-semibold mt-4 mb-1 sm:block hidden">
+          <h1 className="md:text-2xl sm:text-xl text-lg font-semibold mt-2 mb-1 md:block hidden">
             Movie Translated
           </h1>
-          <p className="sm:text-md text-sm text-zinc-200 leading-4.5 sm:block hidden">
+          <p className="md:text-md sm:text-xs text-sm  text-zinc-200 leading-4.5 md:block hidden mb-8">
             {info.translations.join(" , ")}
           </p>
+
+          <Link
+            to={`${pathname}/trailer`}
+            className="md:px-4 md:py-3 sm:px-3 px-2 sm:py-2 py-2 bg-yellow-500 hover:bg-yellow-400 duration-300 rounded lg:mt-5 md:mt-0 mt-3 md:text-sm sm:text-xs text-[10px] font-semibold text-black"
+          >
+            <i class="ri-play-fill mr-2"></i>
+            Play Trailer
+          </Link>
         </div>
       </div>
 
-      {/* Responsive div */}
-      <div className="sm:hidden block p-3">
+      {/* Responsive div Film Details*/}
+      <div className="md:hidden block p-3">
         <h1 className="md:text-xl sm:text-lg text-md font-semibold italic text-zinc-200">
           {info.detail.tagline}
         </h1>
@@ -124,7 +138,8 @@ const Moviedetails = () => {
         <p className="text-xs text-zinc-200">{info.translations.join(", ")}</p>
       </div>
 
-      <div className="w-80 md:flex hidden flex-col px-8">
+      {/* part 3 Available on Platforms */}
+      <div className="w-80 md:flex hidden flex-col px-8 absolute bottom-[12%]">
         {info.watchproviders && info.watchproviders.flatrate && (
           <div className="flex gap-3 w-80 flex-wrap items-center">
             <h1 className="text-sm text-zinc-300">Available on Platforms:</h1>
@@ -168,6 +183,20 @@ const Moviedetails = () => {
           </div>
         )}
       </div>
+
+      {/* Part 4 Recommendations and similar stuff */}
+      <div className="lg:mt-32 md:mt-20 mt-5">
+      <div className="underline w-full h-[1px] bg-zinc-500 mb-4"></div>
+        <h1 className="text-2xl font-semibold p-2 ml-4">Recommendations & Similar</h1>
+        <HorizontalCards
+          data={
+            info.recommendations.length > 0
+              ? info.recommendations
+              : info.similar
+          }
+        />
+      </div>
+      <Outlet />
     </div>
   ) : (
     <Loading />

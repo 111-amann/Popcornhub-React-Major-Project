@@ -27,7 +27,8 @@ const Header = ({ data }) => {
       </p>
       <p className="md:mb-3 mb-0 md:text-sm sm:text-xs text-[9px]">
         <i className="ri-megaphone-fill mr-1 text-[#6556CD] md:text-md sm:text-sm text-xs"></i>
-        {data.release_date.split("-")[0] || data.first_air_date.split("-")[0]}
+        {/* {data.release_date.split("-")[0] || data.first_air_date.split("-")[0]} */}
+        {(data.release_date?.split("-")[0] || data.first_air_date?.split("-")[0]) ?? "N/A"}
         <i className="ri-album-fill mr-1 text-[#6556CD] sm:ml-5 ml-2 md:text-md sm:text-sm text-xs"></i>
         {data.media_type.toUpperCase() || "no iformation"}
       </p>

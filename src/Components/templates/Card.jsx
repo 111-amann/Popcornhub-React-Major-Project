@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom"; 
 
-const Card = ({ data, personPara, title }) => {
+const Card = ({ data, personPara, title, Tvdetails=false }) => {
+  const navigate = useNavigate()
   return (
       <div className="h-fit flex flex-wrap xl:gap-2 md:gap-3 gap-1 md:mt-5 mt-10 justify-center">
         {data.map((c, i) => ( 
