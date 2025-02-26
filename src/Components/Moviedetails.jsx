@@ -11,7 +11,6 @@ const Moviedetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.movie);
-  console.log(info);
 
   useEffect(() => {
     dispatch(asyncloadmovie(id));
@@ -26,7 +25,7 @@ const Moviedetails = () => {
           info.detail.backdrop_path || info.detail.poster_path
         })`,
         backgroundPosition: "center",
-        backgroundSize: "cover",
+        backgroundSize: "cover",  
         backgroundRepeat: "no-repeat",
       }}
       className="w-screen h-screen md:px-5 px-1 overflow-auto relative"

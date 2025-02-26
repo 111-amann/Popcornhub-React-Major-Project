@@ -17,7 +17,6 @@ const tvdetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.tv);
-  console.log(info);
   const scrollContainer = useRef(null);
 
   const scroll = (direction) => {
@@ -216,10 +215,7 @@ const tvdetails = () => {
                     className="sm:w-full w-[80%] h-[65%] object-cover rounded-md shadow"
                   />
                   <h1 className="sm:text-lg text-md font-semibold sm:mt-2 mt-[2px]">
-                    {item.title ||
-                      item.original_title ||
-                      item.original_name ||
-                      item.name}
+                    {item.name}
                   </h1>
                   <p className="text-zinc-300 sm:text-sm text-xs sm:px-0 px-2">
                     {item.overview.slice(0, 35)}...

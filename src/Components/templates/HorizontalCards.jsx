@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import noimage from "/noimage.jpg";
 
 const HorizontalCards = ({ data, disableNavigation }) => {
   const scrollContainer = useRef(null);
@@ -30,9 +31,9 @@ const HorizontalCards = ({ data, disableNavigation }) => {
                 className="lg:min-w-[15%] sm:min-w-[25%] min-w-[45%] h-auto card bg-zinc-900 sm:p-2 p-1 sm:mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300 shadow-[6px_13px_25px_2px_rgba(0,0,0,.5)] hover:shadow-[6px_13px_25px_2px_rgba(0,0,0,.2)]"
               >
                 <img
-                  src={`https://image.tmdb.org/t/p/original/${
+                  src={item.poster_path || item.backdrop_path ? `https://image.tmdb.org/t/p/original/${
                     item.poster_path || item.backdrop_path
-                  }`}
+                  }` : noimage}
                   alt="banner"
                   className="sm:w-full w-[80%] object-cover rounded-md shadow"
                 />
@@ -53,7 +54,7 @@ const HorizontalCards = ({ data, disableNavigation }) => {
           <h1 className="text-xl text-zinc-400 font-semibold text-center mt-5">
             Nothing to Show
           </h1>
-        )}
+        )} 
       </div>
       {data.length > 0 ? (
         <div>

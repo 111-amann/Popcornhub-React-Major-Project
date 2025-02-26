@@ -9,12 +9,13 @@ const Trailer = () => {
   const navigate = useNavigate();
   const category = pathname.includes("movie") ? "movie" : "tv";
   const ytvideo = useSelector((state) => state[category].info.videos);
+  const movieid = useSelector((state) => state[category].info.detail.id);
   console.log(ytvideo);
 
   return (
     <div className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center bg-[rgba(0,0,0,.9)] z-[100] aspect-video">
       <i
-        onClick={() => navigate(-1)}
+        onClick={() => navigate(`/${category}/details/${movieid}`)}
         className="ri-close-fill hover:text-yellow-500 sm:text-2xl md:text-3xl text-xl absolute right-[5%] top-[3%]"
       ></i>
       { ytvideo ?
