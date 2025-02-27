@@ -33,7 +33,7 @@ const About = () => {
         make every movie night special!
       </p>
       <p className="md:text-lg sm:text-md text-sm sm:w-[90%] w-[100%]">
-        This website is developed using React, Tailwind CSS, and Remix Icons,
+        This website is developed using React, Redux Toolkit, Tailwind CSS, and Remix Icons,
         ensuring a fast, responsive, and visually appealing interface. To
         provide accurate and up-to-date movie details, we integrate the TMDB
         API, fetching data dynamically. With Infinite Scroll, you can

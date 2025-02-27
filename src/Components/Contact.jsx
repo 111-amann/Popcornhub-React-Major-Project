@@ -21,11 +21,11 @@ const Contact = () => {
             </span>
           </h1>
         </div>
-
-      <Link className="md:text-lg text-md">📷 Instagram: [Your Instagram Handle]</Link>
-      <Link className="md:text-lg text-md">💼 LinkedIn: [Your LinkedIn profile]</Link>
-      <Link className="md:text-lg text-md">🐦 Twitter (X): [Your Twitter Handle]</Link>
-      <Link className="md:text-lg text-md">👨‍💻 GitHub: [Your GitHub profile]</Link>
+      <h1 className="text-xl italic text-zinc-400">Let’s connect on social media and keep in touch.</h1>
+      <Link target="_blank" to="https://www.instagram.com/111_amann" className="md:text-lg text-md"><i class="ri-instagram-line"></i> Instagram</Link>
+      <Link target="_blank" to="https://www.linkedin.com/in/aman-sayyad-5a8a322b0" className="md:text-lg text-md"><i class="ri-linkedin-fill"></i> LinkedIn</Link>
+      <Link target="_blank" to="https://x.com/AmanSay35959827" className="md:text-lg text-md"><i class="ri-twitter-x-line"></i> Twitter</Link>
+      <Link target="_blank" to="https://github.com/111-amann" className="md:text-lg text-md"><i class="ri-github-line"></i> GitHub</Link>
       <Link
         to="/"
         className="md:px-5 md:py-2 md:mt-5 sm:px-3 sm:py-2 sm:mt-3 px-2 py-1 mt-2 bg-yellow-500 rounded-lg text-black hover:bg-yellow-400"

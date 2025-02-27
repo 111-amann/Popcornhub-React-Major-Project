@@ -16,7 +16,6 @@ const Topnav = ({ page }) => {
       console.error("Error: ", err);
     }
   };
-  console.log(searches);
 
   useEffect(() => {
     getSerches();

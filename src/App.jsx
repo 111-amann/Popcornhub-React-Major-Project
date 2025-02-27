@@ -3,7 +3,7 @@ import Home from "./Components/Home";
 import { Route, Routes } from "react-router-dom";
 import Trending from "./Components/Trending";
 import Popular from "./Components/Popular";
-import Movies from "./Components/movies";
+import Movies from "./Components/Movies";
 import Tvshows from "./Components/Tvshows";
 import People from "./Components/People";
 import Contact from "./Components/Contact";
