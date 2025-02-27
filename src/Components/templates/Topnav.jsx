@@ -9,13 +9,14 @@ const Topnav = ({ page }) => {
 
   const getSerches = async () => {
     try {
-      const { data } = await axios.get(`/search/movie?query=${query}`);
+      const { data } = await axios.get(`/search/multi?query=${query}`);
       // console.log(data.results);
       setSearches(data.results);
     } catch (err) {
       console.error("Error: ", err);
     }
   };
+  console.log(searches);
 
   useEffect(() => {
     getSerches();
@@ -44,15 +45,15 @@ const Topnav = ({ page }) => {
           {searches &&
             searches.map((s, i) => (
               <Link
-                to={`/movie/details/${s.id}`}
+                to={`/${s.media_type}/details/${s.id}`}
                 key={i}
                 className="w-full text-zinc-300 xl:py-2 py-1 xl:px-5 px-2 flex items-center border-b-[1px] border-zinc-500 hover:bg-zinc-500 hover:text-zinc-200 duration-300 font-semibold"
               >
                 <img
                   src={
-                    s.poster_path || s.backdrop_path
+                    s.poster_path || s.backdrop_path || s.profile_path
                       ? `https://image.tmdb.org/t/p/original/${
-                          s.poster_path || s.backdrop_path
+                          s.poster_path || s.backdrop_path || s.profile_path
                         }`
                       : noimage
                   }

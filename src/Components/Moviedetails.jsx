@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadmovie, removemovie } from "../store/actions/movieActions";
-import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import Loading from "./Loading";
 import HorizontalCards from "./templates/HorizontalCards";
 
@@ -25,7 +31,7 @@ const Moviedetails = () => {
           info.detail.backdrop_path || info.detail.poster_path
         })`,
         backgroundPosition: "center",
-        backgroundSize: "cover",  
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
       className="w-screen h-screen md:px-5 px-1 overflow-auto relative"
@@ -37,16 +43,16 @@ const Moviedetails = () => {
           className="ri-arrow-left-line bg-gray-800 text-white p-1 md:p-2 rounded-full lg:shadow-lg md:shadow-md hover:bg-yellow-500 hover:drop-shadow-2xl transition lg:mr-5 md:mr-2 mr-1 sm:text-md md:text-lg text-sm static"
         ></i>
         <a target="_blank" href={info.detail.homepage}>
-          <i class="ri-external-link-fill hover:text-zinc-100 hover:drop-shadow-2xl"></i>
+          <i className="ri-external-link-fill hover:text-zinc-100 hover:drop-shadow-2xl"></i>
         </a>
         <a
           target="_blank"
           href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}/`}
         >
-          <i class="ri-earth-fill hover:text-zinc-100 hover:drop-shadow-2xl"></i>
+          <i className="ri-earth-fill hover:text-zinc-100 hover:drop-shadow-2xl"></i>
         </a>
         <a
-          class="hover:text-zinc-100 hover:drop-shadow-2xl tracking-tighter font-semibold"
+          className="hover:text-zinc-100 hover:drop-shadow-2xl tracking-tighter font-semibold"
           target="_blank"
           href={`https://www.imdb.com/title/${info.externalid.imdb_id}/`}
         >
@@ -120,7 +126,7 @@ const Moviedetails = () => {
             to={`${pathname}/trailer`}
             className="md:px-4 md:py-3 sm:px-3 px-2 sm:py-2 py-2 bg-yellow-500 hover:bg-yellow-400 duration-300 rounded lg:mt-5 md:mt-0 mt-3 md:text-sm sm:text-xs text-[10px] font-semibold text-black"
           >
-            <i class="ri-play-fill mr-2"></i>
+            <i className="ri-play-fill mr-2"></i>
             Play Trailer
           </Link>
         </div>
@@ -185,8 +191,10 @@ const Moviedetails = () => {
 
       {/* Part 4 Recommendations and similar stuff */}
       <div className="lg:mt-32 md:mt-20 mt-5">
-      <div className="underline w-full h-[1px] bg-zinc-500 mb-4"></div>
-        <h1 className="text-2xl font-semibold p-2 ml-4">Recommendations & Similar</h1>
+        <div className="underline w-full h-[1px] bg-zinc-500 mb-4"></div>
+        <h1 className="text-2xl font-semibold p-2 ml-4">
+          Recommendations & Similar
+        </h1>
         <HorizontalCards
           data={
             info.recommendations.length > 0

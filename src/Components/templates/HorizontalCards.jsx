@@ -21,7 +21,7 @@ const HorizontalCards = ({ data, disableNavigation }) => {
         ref={scrollContainer}
         className="w-full flex overflow-auto gap-2"
         style={{ scrollBehavior: "smooth" }}
-      >
+      > 
         {data.length > 0 ? (
           data.map((item, i) =>
             
@@ -67,7 +67,7 @@ const HorizontalCards = ({ data, disableNavigation }) => {
           </button>
           <button
             onClick={() => scroll("right")}
-            className="absolute right-0 top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 sm:text-md md:text-lg text-sm sm:block hidden"
+            className="absolute right-[-1.5%] top-[70%] -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full lg:shadow-lg md:shadow-md shadow-sm hover:bg-yellow-500 transition lg:mr-5 md:mr-2 mr-1 sm:text-md md:text-lg text-sm sm:block hidden"
           >
             <i className="ri-arrow-right-line"></i>
           </button>
