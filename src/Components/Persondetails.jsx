@@ -190,10 +190,10 @@ const Personetails = () => {
             </h1>
             {info.detail.biography && (
               <div className="md:pl-5">
-                <h1 className="text-zinc-400 lg:text-2xl md:text-xl text-2xl font-semibold mt-5 px-4 md:px-0">
+                <h1 className="text-zinc-400 lg:text-2xl md:text-xl text-2xl font-semibold mt-5 sm:px-4 md:px-0">
                   Biography
                 </h1>
-                <p className="text-zinc-400 lg:text-md md:text-sm text-xs font-semibold sm:mt-2 mt-1 mb-1 px-4 md:px-0">
+                <p className="text-zinc-400 lg:text-md md:text-sm text-xs font-semibold sm:mt-2 mt-1 mb-1 sm:px-4 md:px-0">
                   {info.detail.biography}
                 </p>
               </div>

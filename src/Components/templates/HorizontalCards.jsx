@@ -45,7 +45,7 @@ const HorizontalCards = ({ data, disableNavigation }) => {
                 </h1>
                 <p className="text-zinc-300 sm:text-sm text-xs sm:px-0 px-2">
                   {item.overview.slice(0, 35)}...
-                  <Link className="text-zinc-400">More</Link>
+                  <span className="text-zinc-400">More</span>
                 </p>
               </Link>
             

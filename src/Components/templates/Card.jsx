@@ -28,9 +28,11 @@ const Card = ({ data, personPara, title, Tvdetails=false }) => {
             </p>: <p className="text-zinc-300 text-sm xl:block hidden">
               {c.overview.slice(0, 35)
               }...
-              <Link className="text-zinc-400">More</Link>
+              <span className="text-zinc-400">More</span>
             </p>}
-              {/* {c.vote_average && <p className="text-zinc-300 text-left text-sm xl:block hidden absolute left-2 bottom-[3%]">Rating - {(c.vote_average / 1).toFixed(1)}/10</p>} */}
+            
+              {c.vote_average && <p className="text-zinc-300 text-left text-xs sm:hidden block absolute left-[26%] bottom-[5%]">Rating - {(c.vote_average / 1).toFixed(1)}/10</p>}
+
               {c.vote_average && <div className="xl:w-[3vw] xl:h-[3vw] md:w-[3vw] md:h-[3vw] sm:w-[6vw] sm:h-[6vw] w-[7vw] h-[7vw] bg-yellow-500 rounded-full absolute lg:right-0 sm:right-2 sm:flex hidden justify-center items-center font-semibold lg:text-sm md:text-xs sm:text-sm text-[12px] xl:top-[60%] md:top-[68%] sm:top-[70%]">{(c.vote_average / 1).toFixed()}/10</div>}
           </Link>
         ))}

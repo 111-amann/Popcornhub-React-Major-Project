@@ -112,9 +112,6 @@ const tvdetails = () => {
             <h1 className="md:text-md sm:text-sm text-xs">
               {info.detail.genres.map((g) => g.name).join(",")}
             </h1>
-            <h1 className="md:text-md sm:text-sm text-xs">
-              {info.detail.runtime}min
-            </h1>
           </div>
 
           <h1 className="md:text-2xl sm:text-lg text-md font-semibold italic text-zinc-200 md:block hidden">
@@ -207,7 +204,7 @@ const tvdetails = () => {
         <div className="w-full h-auto sm:px-5 px-1 flex gap-3 overflow-x-auto flex-nowrap">
           {info.detail.seasons.length > 0 ? (
             info.detail.seasons.map((item, i) => (
-              <div className="lg:w-[15%] sm:w-[25%] w-[45%] rounded-lg">
+              <div key={i} className="lg:w-[15%] sm:w-[25%] w-[45%] rounded-lg">
                 <div className="lg:min-w-[15%] sm:min-w-[25%] min-w-[45%] sm:h-[60vh] h-[45vh] card bg-zinc-900 sm:p-2 p-0 sm:mb-2 flex flex-col items-center justify-center rounded-lg hover:bg-zinc-600 duration-300 shadow-[6px_13px_25px_2px_rgba(0,0,0,.5)] hover:shadow-[6px_13px_25px_2px_rgba(0,0,0,.2)]">
                   <img
                     src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}

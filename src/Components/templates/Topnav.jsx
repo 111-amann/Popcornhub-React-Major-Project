@@ -57,7 +57,7 @@ const Topnav = ({ page }) => {
                       : noimage
                   }
                   alt=""
-                  className="xl:w-12 xl:h-17 md:w-8 md:h-12 sm:w-5 sm:h-8 w-3 sm:h-5 object-cover md:rounded-md sm:rounded rounded-[2px] mr-4 my-2 shadow"
+                  className="xl:w-12 xl:h-17 md:w-8 md:h-12 sm:w-5 sm:h-8 w-7 sm:h-5 object-cover md:rounded-md sm:rounded rounded-[2px] mr-4 my-2 shadow"
                 />
                 <span className="xl:text-md md:text-sm sm:text-xs text-[11px]">
                   {s.title || s.original_title || s.original_name || s.name}
